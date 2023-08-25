@@ -1,49 +1,378 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html lang="pt-br">
+
 <head>
+
   <meta charset="UTF-8">
+
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Document</title>
+
   <style>
-    /*
-      1) Crie dois estilos CSS, um que coloque o texto em uma cor
-          e outro que coloque o texto em outra cor.
-    */
+    .parag-1 {
+      color: black;
+
+      border-radius: 8px;
+
+      text-align: center;
+
+      font-family: Cambria, "Times New Roman", serif;
+
+      margin-bottom: 20px;
+
+      padding: 20px;
+
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+
+
+
+      background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+
+      background-size: 1800% 1800%;
+
+
+
+
+
+      -webkit-animation: rainbow 2.5s ease infinite;
+
+      -z-animation: rainbow 2.5s ease infinite;
+
+      -o-animation: rainbow 2.5s ease infinite;
+
+      animation: rainbow 2.5s ease infinite;
+    }
+
+
+
+    @-webkit-keyframes rainbow {
+
+      0% {
+        background-position: 0% 82%
+      }
+
+      50% {
+        background-position: 100% 19%
+      }
+
+      100% {
+        background-position: 0% 82%
+      }
+
+    }
+
+    @-moz-keyframes rainbow {
+
+      0% {
+        background-position: 0% 82%
+      }
+
+      50% {
+        background-position: 100% 19%
+      }
+
+      100% {
+        background-position: 0% 82%
+      }
+
+    }
+
+    @-o-keyframes rainbow {
+
+      0% {
+        background-position: 0% 82%
+      }
+
+      50% {
+        background-position: 100% 19%
+      }
+
+      100% {
+        background-position: 0% 82%
+      }
+
+    }
+
+    @keyframes rainbow {
+
+      0% {
+        background-position: 0% 82%
+      }
+
+      50% {
+        background-position: 100% 19%
+      }
+
+      100% {
+        background-position: 0% 82%
+      }
+
+    }
+
+
+    .parag-2 {
+      color: blue;
+
+      border-radius: 8px;
+
+
+      text-align: center;
+
+      font-family: Cambria, "Times New Roman", serif;
+
+      margin-bottom: 20px;
+
+      padding: 20px;
+
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+
+
+
+      background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+
+      background-size: 1800% 1800%;
+
+
+
+
+
+      -webkit-animation: rainbow 2.5s ease infinite;
+
+      -z-animation: rainbow 2.5s ease infinite;
+
+      -o-animation: rainbow 2.5s ease infinite;
+
+      animation: rainbow 2.5s ease infinite;
+    }
+
+
+
+    @-webkit-keyframes rainbow {
+
+      0% {
+        background-position: 0% 82%
+      }
+
+      50% {
+        background-position: 100% 19%
+      }
+
+      100% {
+        background-position: 0% 82%
+      }
+
+    }
+
+    @-moz-keyframes rainbow {
+
+      0% {
+        background-position: 0% 82%
+      }
+
+      50% {
+        background-position: 100% 19%
+      }
+
+      100% {
+        background-position: 0% 82%
+      }
+
+    }
+
+    @-o-keyframes rainbow {
+
+      0% {
+        background-position: 0% 82%
+      }
+
+      50% {
+        background-position: 100% 19%
+      }
+
+      100% {
+        background-position: 0% 82%
+      }
+
+    }
+
+    @keyframes rainbow {
+
+      0% {
+        background-position: 0% 82%
+      }
+
+      50% {
+        background-position: 100% 19%
+      }
+
+      100% {
+        background-position: 0% 82%
+      }
+
+    }
+
+    .div1 {
+
+      border-radius: 8px;
+
+      color: white;
+
+      text-align: center;
+
+      font-family: Cambria, "Times New Roman", serif;
+
+      margin-bottom: 20px;
+
+      padding: 20px;
+
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+
+
+
+      background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+
+      background-size: 1800% 1800%;
+
+
+
+
+
+      -webkit-animation: rainbow 2.5s ease infinite;
+
+      -z-animation: rainbow 2.5s ease infinite;
+
+      -o-animation: rainbow 2.5s ease infinite;
+
+      animation: rainbow 2.5s ease infinite;
+    }
+
+
+
+    @-webkit-keyframes rainbow {
+
+      0% {
+        background-position: 0% 82%
+      }
+
+      50% {
+        background-position: 100% 19%
+      }
+
+      100% {
+        background-position: 0% 82%
+      }
+
+    }
+
+    @-moz-keyframes rainbow {
+
+      0% {
+        background-position: 0% 82%
+      }
+
+      50% {
+        background-position: 100% 19%
+      }
+
+      100% {
+        background-position: 0% 82%
+      }
+
+    }
+
+    @-o-keyframes rainbow {
+
+      0% {
+        background-position: 0% 82%
+      }
+
+      50% {
+        background-position: 100% 19%
+      }
+
+      100% {
+        background-position: 0% 82%
+      }
+
+    }
+
+    @keyframes rainbow {
+
+      0% {
+        background-position: 0% 82%
+      }
+
+      50% {
+        background-position: 100% 19%
+      }
+
+      100% {
+        background-position: 0% 82%
+      }
+
+    }
   </style>
+
 </head>
+
 <body>
+
+
 
   <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  
+
+
+
   <div id="root"></div>
 
+
+
   <script type="text/babel">
-    /*
-      EXERCÍCIO DE FIXAÇÃO nº 1
 
-      2) Declare uma função de componente que receba as seguintes
-         props personalizadas: nome, sobrenome, dia, mes e ano.
-      3) Na função de componente, coloque um fragment e, dentro dele,
-        dois parágrafos: no primeiro, deve ser aplicada a classe que
-        deixa a cor do texto em uma cor e, no outro, a classe que deixa
-        a cor na outra cor.
-      4) No primeiro parágrafo, deve ser exibido o nome completo, composto
-         por nome e sobrenome.
-      5) No segundo parágrafo, deve ser exibida a data de nascimento, 
-         composta pelo dia, pelo mês e pelo ano, separados por /.
-      6) No componente, crie, ainda, uma div. Dentro dela, deve ser exibida
-         a idade que a pessoa terá ao final do ano, calculada por meio de
-         um cálculo simples (2023 menos o ano de nascimento informado).
-      7) Faça os comentários que julgar necessários no código.
+    function ComponentePersonalizado({ nome, sobrenome, dia, mes, ano }) {
+      const idade = 2023 - ano;
 
-      Esta atividade contará para a nota de Participação e Assiduidade (PA).
-    */
-    
+
+
+      return <div>
+
+        <p className="parag-1">{nome} {sobrenome}</p>
+        <p className="parag-2">{dia}/{mes}/{ano}</p>
+        <div className="div1">
+
+
+          Idade ao final do ano: {idade} anos
+
+        </div>
+
+      </div>
+
+    }
+
+
+
+    const container =
+      <>
+
+        <ComponentePersonalizado nome="Guilherme" sobrenome="Cardoso" dia={11} mes={"07"} ano={2003} />
+
+      </>
+    const root = ReactDOM.createRoot(document.getElementById('root'))
+
+    root.render(container)
+
+
 
   </script>
-  
+
+
+
 </body>
+
 </html>
