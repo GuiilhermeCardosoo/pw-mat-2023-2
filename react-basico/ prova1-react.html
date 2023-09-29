@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <div id="root"></div>
+
+
+
+    <script type="text/babel">
+
+        function Form() {
+
+            // Declarção de váriaveis
+            const alturaRef = React.useRef();
+            const kilosRef = React.useRef();
+            const resultadoRef = React.useRef();
+
+            let altura, kilos
+
+            // Cálculo
+            function handleChange() {
+
+                altura = alturaRef.current.value;
+
+                kilos = kilosRef.current.value;
+
+                resultadoRef.current.textContent = kilos / (altura * altura);
+
+            }
+
+            // Mostrar para entrada de dados
+            return (
+
+                <div>
+                    <h1>Cálculo do Índice de Massa Corporal</h1>
+
+                    <label>
+
+                        <span>Peso:</span><br />
+                        <input ref={kilosRef} onChange={handleChange} />
+
+                    </label>
+
+                    <br />
+
+                    <label>
+
+                        <span>Altura:</span><br />
+                        <input ref={alturaRef} onChange={handleChange} />
+
+                    </label>
+                    <div>
+                        IMC:
+                    </div>
+
+                    <br />
+
+                    <div ref={resultadoRef}></div>
+
+                </div>
+
+            )
+        }
+        const container =
+            <>
+                <Form />
+            </>
+
+        const root = ReactDOM.createRoot(document.getElementById('root'))
+
+        root.render(container)
+
+    </script>
+
+
+</body>
+
+</html>
