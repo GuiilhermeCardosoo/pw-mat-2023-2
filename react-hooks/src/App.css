@@ -263,3 +263,7 @@ https://micku7zu.github.io/vanilla-tilt.js/index.html
     border: none;
     background-color: transparent;
   }
+
+  .temaEscuro * {
+    background-color: #000;
+  }
