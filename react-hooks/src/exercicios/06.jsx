@@ -4,13 +4,24 @@ import * as React from 'react'
 // PokemonInfoFallback: o que é exibido enquanto as informações do pokémon
 // são carregadas
 // PokemonDataView: o componente usado para exibir as informações do pokémon
-import {PokemonForm, fetchPokemon, PokemonInfoFallback, PokemonDataView} from '../pokemon'
+import { PokemonForm, fetchPokemon, PokemonInfoFallback, PokemonDataView } from '../pokemon'
 
-function PokemonInfo({pokemonName}) {
+function PokemonInfo({ pokemonName }) {
   // 🐨 crie o estado para o pokémon (null)
-  const [pokemon, setPokemon] = React.useState(null)
-  const [error, setError] = React.useState(null)
-  const [status, setStatus] = React.useState('idle')
+  // const [pokemon, setPokemon] = React.useState(null)
+  // const [error, setError] = React.useState(null)
+  // const [status, setStatus] = React.useState('idle')
+
+  // Criando ima única variável de estado, do tipo objeto, 
+  // com a mesma funcionalidade das variáveis de estado avulsas
+  // comentadas acima
+  const [state, setState] = React.useState({
+    pokemon: null,
+    error: null,
+    status: `idle`
+  })
+  // Usando desestruturação para criar variáveis de estado somente-leitura
+  const { pokemon, error, status } = state
 
   // 🐨 crie React.useEffect de modo a ser chamado sempre que pokemonName mudar.
   // 💰 NÃO SE ESQUEÇA DO VETOR DE DEPENDÊNCIAS!
@@ -18,23 +29,31 @@ function PokemonInfo({pokemonName}) {
     requestPokemon()
   }, [pokemonName])
 
+  // useEffect() para contar a quantidade de vezes que o componente foi atualizado
+  React.useEffect(() => {
+    console.count('COMPONENTE ATUALIZADO')
+  }) // ~> sem vetor de dependências, será executado em qualquer mudança de estado
+
   async function requestPokemon() {
 
     // 💰 se pokemonName é falso (ou uma string vazia) não se preocupe em fazer 
     // a requisição (retorne precocemente).
-    if(! pokemonName) return
-    
+    if (!pokemonName) return
+
     // 🐨 antes de chamar `fetchPokemon`, limpe o estado atual do pokemon
     // ajustando-o para null.
-    setPokemon(null)
-    setError(null)
-    setStatus('idle')   // Aguardando ação do usuário
-
+    // setPokemon(null)
+    // setError(null)
+    // setStatus('idle')   // Aguardando ação do usuário
     try {
-      
+
+      // ATUALIZAÇÃO  DE UMA VARIÁVEL DE ESTADO DO TIPO OBJETO
+      // Primeiro, ...state copia os valores atuais da variável de estado
+      // Em seguida, são feitas atualização nos campos necessários
+
       // Vamos disparar a requisição, e o resultado ficará pendente
-      setStatus('pending')
-      
+      setState({ ...state, pokemon: null, error: null, status: 'pending' })
+
       // (Isso é para habilitar o estado de carregamento ao alternar entre diferentes
       // pokémon.)
       // 💰 Use a função `fetchPokemon` para buscar um pokémon pelo seu nome:
@@ -44,14 +63,18 @@ function PokemonInfo({pokemonName}) {
       setPokemon(pokemonData)   // 2
 
       // Solicitação resolvida com sucesso!
-      setStatus('resolved')
+      // setStatus('resolved')
+
+      setState({ ...state, pokemon: pokemonData, status: 'resolved' })
     }
-    catch(error) {
+    catch (error) {
       //alert(error.message)
-      setError(error)
+      // setError(error)
 
       // A solicitação foi rejeitada por algum motivo
-      setStatus('rejected')
+      // setStatus('rejected')
+
+      setState({ ...state, error: error, status: 'rejected' })
     }
 
   }
@@ -69,7 +92,7 @@ function PokemonInfo({pokemonName}) {
   // else if(pokemonName && !pokemon) return <PokemonInfoFallback name={pokemonName} />
   // else if(pokemon) return <PokemonDataView pokemon={pokemon} />
 
-  switch(status) {
+  switch (status) {
     case 'idle':        // Aguardando ação do usuário
       return 'Informe um pokémon'
 
@@ -87,7 +110,7 @@ function PokemonInfo({pokemonName}) {
       )
 
   }
-  
+
 }
 
 function Exercicio06() {
